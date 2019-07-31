@@ -1,0 +1,124 @@
+package ${package.Controller};
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+    #if(${restControllerStyle})
+    import org.springframework.web.bind.annotation.RequestMethod;
+    import org.springframework.web.bind.annotation.RestController;
+    #else
+    import org.springframework.stereotype.Controller;
+    #end
+    #if(${superControllerClassPackage})
+    import ${superControllerClassPackage};
+    #end
+import ${package.Service}.${table.serviceName};
+
+import java.util.List;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import common.utils.R;
+/**
+ * <p>
+ * ${entity}前端控制器
+ * </p>
+ *
+ * @author xzd
+ * @email 958098959@qq.com
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@Api(tags = "${entity}")
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+    #if(${superControllerClass})
+    public class ${table.controllerName} extends ${superControllerClass} {
+    #else
+    public class ${table.controllerName} {
+    #end
+@Autowired
+public ${table.serviceName} ${table.entityPath}Service;
+
+/**
+* 保存单条
+* @param param 保存参数
+* @return 是否添加成功
+*/
+@ApiOperation(value = "保存", notes = "保存数据到${entity}")
+@RequestMapping(value = "/add.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R add${entity}(@RequestBody ${entity}Form param) {
+        Integer result = ${table.entityPath}Service.save(param);
+        return R.ok(result);
+        }
+
+/**
+* 更新(根据主键id更新)
+* @param id 修改参数
+* @return 是否更改成功
+*/
+@ApiOperation(value = "更新数据", notes = "根据主键id更新${entity}数据")
+@RequestMapping(value = "/updateById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R update${entity}ById(@RequestBody ${entity}Form param) {
+        Integer result = ${table.entityPath}Service.updateById(param);
+        return R.ok(result);
+        }
+
+/**
+* 删除(根据主键id伪删除)
+* @param id 主键id
+* @return 是否删除成功
+*/
+@ApiOperation(value = "删除数据", notes = "根据主键id伪删除${entity}数据")
+@RequestMapping(value = "/deleteById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R delete${entity}ById(String id) {
+        Integer result = ${table.entityPath}Service.deleteById(id);
+        return R.ok(result);
+        }
+
+/**
+* 根据主键id查询单条
+* @param param 主键id
+* @return 查询结果
+*/
+@ApiOperation(value = "获取单条数据", notes = "根据主键id获取${entity}数据")
+@RequestMapping(value = "/getById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R get${entity}ById(String id) {
+    ${entity}VO result = ${table.entityPath}Service.selectById(id);
+        return R.ok(result);
+        }
+
+/**
+* 查询全部
+* @param param 查询条件
+* @return 查询结果
+*/
+@ApiOperation(value = "全部查询", notes = "查询${entity}全部数据")
+@RequestMapping(value = "/queryAll.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R get${entity}All(@RequestBody ${entity}Form param) {
+        List<${entity}VO> result = ${table.entityPath}Service.selectAll(param);
+        return R.ok(result);
+        }
+
+/**
+* 分页查询
+* @param param 查询条件
+* @return 查询结果
+*/
+@ApiOperation(value = "分页查询", notes = "分页查询${entity}全部数据")
+@RequestMapping(value = "/queryPage.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+public R get${entity}Page(@RequestBody ${entity}Form param) {
+        IPage<${entity}VO> result = ${table.entityPath}Service.selectPage(param);
+        return R.ok(result);
+        }
+
+        }
+
+#end

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="system.dao.SysUserMapper">
+
+    <select id="findByUsername" resultType="system.domain.UserDO">
+		select * from sys_user where username = #{username}
+	</select>
+
+	<!--旧方法分页-->
+    <!--<select id="selectPageVo" resultType="com.xzd.blacklist.system.domain.UserDO">
+         SELECT *  FROM sys_user
+    </select>-->
+
+
+</mapper>

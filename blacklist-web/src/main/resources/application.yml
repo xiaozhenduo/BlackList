@@ -1,0 +1,49 @@
+
+#服务配置
+server:
+  port: 8888
+  session-timeout: 1800 #shiro 会话过期时间
+  servlet:
+    session:
+      timeout: 1800s #用户会话session过期时间，以秒为单位
+
+#数据库配置
+
+
+#spring配置
+spring:
+  #环境选择
+  profiles:
+    active: dev
+  #模版引擎配置
+  thymeleaf:
+    encoding: utf-8
+    cache: false
+  #redis
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+    timeout: 10000
+
+
+#mybatis配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  typeAliasesPackage: .*.domain
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+
+
+
+

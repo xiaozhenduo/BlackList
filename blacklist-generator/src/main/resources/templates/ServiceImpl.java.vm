@@ -1,0 +1,125 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.commons.lang.StringUtils;
+import common.Exception.BlackException;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.springframework.util.CollectionUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+
+/**
+ * <p>
+ * ${entity}服务实现类
+ * </p>
+ *
+ * @author xzd
+ * @email 958098959@qq.com
+ * @since ${date}
+ */
+@Service
+#if(${kotlin})
+open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
+
+        }
+#else
+        public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+        @Override
+        public Integer save(${entity}Form record) {
+    ${entity} data = new ${entity}(record);
+        data.setCreateTime(LocalDateTime.now());
+        return baseMapper.insert(data);
+        }
+
+        @Override
+        public Integer updateById(${entity}Form record) {
+    ${entity} data = new ${entity}(record);
+        data.setUpdateTime(LocalDateTime.now());
+        return baseMapper.updateById(data);
+        }
+
+        @Override
+        public Integer deleteById(String id) {
+        if(StringUtils.isBlank(id)){
+        throw new BlackException("id不能为空");
+        }
+        return baseMapper.deleteById(id);
+        }
+
+        @Override
+        public ${entity}VO selectById(String id) {
+        if(StringUtils.isBlank(id)){
+        throw new BlackException("id不能为空");
+        }
+    ${entity} data = baseMapper.selectById(id);
+    ${entity}VO vo = new ${entity}VO();
+        BeanUtils.copyProperties(data,vo);
+        return vo;
+        }
+
+        @Override
+        public List<${entity}VO> selectAll(${entity}Form record) {
+    ${entity} data = new ${entity}(record);
+        QueryWrapper<${entity}> queryWrapper =  new QueryWrapper<>();
+        queryWrapper.setEntity(data);
+        List<${entity}> list = baseMapper.selectList(queryWrapper);
+        return this.convert(list);
+        }
+
+        @Override
+        public IPage<${entity}VO> selectPage(${entity}Form record) {
+        // form -> do 转换
+    ${entity} data = new ${entity}(record);
+        // 分页数据设置
+        Page<${entity}> page = new Page<>(record.getCurrent(),record.getSize());
+        // 查询条件
+        QueryWrapper<${entity}> queryWrapper =  new QueryWrapper<>();
+        queryWrapper.setEntity(data);
+        IPage<${entity}> list = baseMapper.selectPage(page, queryWrapper);
+        IPage<${entity}VO> iPage = new Page<>();
+        iPage.setRecords(this.convert(list.getRecords()));
+        iPage.setCurrent(list.getCurrent());
+        iPage.setSize(list.getSize());
+        iPage.setTotal(list.getTotal());
+        iPage.setPages(list.getPages());
+        return iPage;
+        }
+
+
+
+
+
+        /**
+        * Do -> VO
+        * @param list 对象
+        * @return VO对象
+        */
+        private List<${entity}VO> convert(List<${entity}> list){
+        List<${entity}VO> ${table.entityPath}List = new ArrayList<>();
+        if (CollectionUtils.isEmpty(list)) {
+        return ${table.entityPath}List;
+        }
+        for (${entity} source : list) {
+    ${entity}VO target = new ${entity}VO();
+        BeanUtils.copyProperties(source, target);
+    ${table.entityPath}List.add(target);
+        }
+        return ${table.entityPath}List;
+        }
+
+        }
+#end
