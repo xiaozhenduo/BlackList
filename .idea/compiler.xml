@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blacklist-common" />
+        <module name="blacklist-generator" />
+        <module name="blacklist-shiro" />
+        <module name="blacklist-system" />
+        <module name="blacklist-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BlackList" target="1.8" />
+      <module name="blacklist-common" target="1.8" />
+      <module name="blacklist-generator" target="1.8" />
+      <module name="blacklist-shiro" target="1.8" />
+      <module name="blacklist-system" target="1.8" />
+      <module name="blacklist-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BlackList" options="-parameters" />
+      <module name="blacklist-common" options="-parameters" />
+      <module name="blacklist-generator" options="-parameters" />
+      <module name="blacklist-shiro" options="-parameters" />
+      <module name="blacklist-system" options="-parameters" />
+      <module name="blacklist-web" options="-parameters" />
+    </option>
+  </component>
+</project>

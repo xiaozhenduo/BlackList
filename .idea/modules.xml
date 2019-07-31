@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BlackList.iml" filepath="$PROJECT_DIR$/BlackList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blacklist-common/blacklist-common.iml" filepath="$PROJECT_DIR$/blacklist-common/blacklist-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blacklist-generator/blacklist-generator.iml" filepath="$PROJECT_DIR$/blacklist-generator/blacklist-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blacklist-shiro/blacklist-shiro.iml" filepath="$PROJECT_DIR$/blacklist-shiro/blacklist-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blacklist-system/blacklist-system.iml" filepath="$PROJECT_DIR$/blacklist-system/blacklist-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blacklist-web/blacklist-web.iml" filepath="$PROJECT_DIR$/blacklist-web/blacklist-web.iml" />
+    </modules>
+  </component>
+</project>
