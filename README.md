@@ -12,7 +12,7 @@ BlackList基于Spring Boot 、shiro、Mybatis Plus、Vue的前后端分离的的
    -  --blacklist-common 公共类模块
    - --blacklist-generator 代码生成器
    - --blacklist-shiro Java安全框架
-    --blacklist-system 系统功能模块
-    --blacklist-web 配置文件静态文件地址
+   - --blacklist-system 系统功能模块
+   - --blacklist-web 配置文件静态文件地址
     
     
