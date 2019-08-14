@@ -8,6 +8,7 @@ import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSource
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.crazycake.shiro.RedisCacheManager;
+
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,8 +40,7 @@ public class ShiroConfig {
     @Value("${spring.redis.password}")
     private String password;
 
-    @Value("${server.session-timeout}")
-    private int tomcatTimeout;
+
 
 
 
@@ -58,7 +58,7 @@ public class ShiroConfig {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         //注意过滤器配置顺序 不能颠倒
         //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了，登出后跳转配置的loginUrl
-        filterChainDefinitionMap.put("/logout", "logout");
+        //filterChainDefinitionMap.put("/logout", "logout");
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/login", "anon");
@@ -99,7 +99,6 @@ public class ShiroConfig {
     @Bean
     public SessionManager sessionManager() {
         MySessionManager mySessionManager = new MySessionManager();
-        mySessionManager.setGlobalSessionTimeout(tomcatTimeout * 1000);
         mySessionManager.setSessionDAO(redisSessionDAO());
         return mySessionManager;
     }
@@ -114,7 +113,6 @@ public class ShiroConfig {
     public RedisManager redisManager() {
         RedisManager redisManager = new RedisManager();
         redisManager.setHost(host);
-        redisManager.setPort(port);
         //redisManager.setPassword(password);
         redisManager.setTimeout(timeout);
         return redisManager;
@@ -131,6 +129,7 @@ public class ShiroConfig {
     public RedisCacheManager rediscacheManager() {
         RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(redisManager());
+        redisCacheManager.setPrincipalIdFieldName("id");
         return redisCacheManager;
     }
 

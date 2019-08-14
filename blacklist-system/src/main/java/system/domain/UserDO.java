@@ -3,7 +3,6 @@ package system.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import system.pojo.UserFrom;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -79,18 +78,14 @@ public class UserDO implements Serializable {
 	@ApiModelProperty(value = "备注",name = "note")
 	private String note;
 
-	/**
-	 * 设置：
-	 */
-	public void setUserId(String userId) {
-		this.id = userId;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getUserId() {
+	public String getId() {
 		return id;
 	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	/**
 	 * 设置：登录账号
 	 */
@@ -311,12 +306,4 @@ public class UserDO implements Serializable {
 	public UserDO(){};
 
 
-	public UserDO(UserFrom from){
-		this.setName(from.getName());
-		this.setBirth(from.getBirth());
-		this.setPassword(from.getPassword());
-		this.setCity(from.getCity());
-		this.setCreateTime(from.getCreateTime());
-		this.setDeptId(from.getDeptId());
-	}
 }

@@ -2,7 +2,6 @@
 #服务配置
 server:
   port: 8888
-  session-timeout: 1800 #shiro 会话过期时间
   servlet:
     session:
       timeout: 1800s #用户会话session过期时间，以秒为单位
@@ -21,7 +20,7 @@ spring:
     cache: false
   #redis
   redis:
-    host: localhost
+    host: localhost:6379
     port: 6379
     password:
     jedis:

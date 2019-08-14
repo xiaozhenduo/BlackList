@@ -56,9 +56,8 @@ public class R extends HashMap<String,Object> {
     }
 
 
-    public static R ok(Map<String, Object> map){
-        R r =new R();
-        r.put("code", 200);
+    public static R ok(Map<String, Object> map) {
+        R r = new R();
         r.putAll(map);
         return r;
     }
@@ -88,6 +87,12 @@ public class R extends HashMap<String,Object> {
             r.put("msg","保存或更新删除数据失败");
         }
         return r;
+    }
+
+
+    public R put(String key, Object value) {
+        super.put(key, value);
+        return this;
     }
 
 }

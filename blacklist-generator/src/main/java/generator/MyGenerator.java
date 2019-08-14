@@ -93,13 +93,13 @@ public class MyGenerator {
         });
 
 
-        // ------------form pojo 使用默认模板请注释-begin-----------
+        // ------------form system.pojo 使用默认模板请注释-begin-----------
         templatePath = "/templates/entityForm.java.vm";
         focList.add(new FileOutConfig(templatePath) { // 自定义配置会被优先输出
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // form自定义输出文件名
-                return projectPath + "/blacklist-generator/src/main/java/pojo/" + tableInfo.getEntityName() + "Form"
+                return projectPath + "/blacklist-generator/src/main/java/system.pojo/" + tableInfo.getEntityName() + "Form"
                         + StringPool.DOT_JAVA;
             }
         });
@@ -108,7 +108,7 @@ public class MyGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // VO自定义输出文件名
-                return projectPath + "/blacklist-generator/src/main/java/pojo/" + tableInfo.getEntityName() + "VO"
+                return projectPath + "/blacklist-generator/src/main/java/system.pojo/" + tableInfo.getEntityName() + "VO"
                         + StringPool.DOT_JAVA;
             }
         });

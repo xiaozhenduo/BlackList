@@ -1,5 +1,7 @@
 package system.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @program BlackList
  * @description:
@@ -7,7 +9,7 @@ package system.pojo;
  * @create: 2019/07/25 20:06
  */
 
-
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class LoginForm {
 
 

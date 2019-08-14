@@ -1,16 +1,15 @@
 package system.pojo;
-
+import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import java.io.Serializable;
-import java.util.Date;
-import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 /**
  * <p>
- * UserVO对象
+ * UserForm对象
  * </p>
  *
  * @author xzd
@@ -18,66 +17,68 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * @since 2019-07-31
  */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel(value="User对象", description="")
-public class UserVO implements Serializable {
+public class UserForm extends Page {
 
     private static final long serialVersionUID = 1L;
+
 
 
     private String id;
 
         @ApiModelProperty(value = "登录账号")
-private String username;
+        private String username;
 
         @ApiModelProperty(value = "用户名")
-private String name;
+        private String name;
 
         @ApiModelProperty(value = "密码")
-private String password;
+        private String password;
 
         @ApiModelProperty(value = "部门id")
-private String deptId;
+        private String deptId;
 
         @ApiModelProperty(value = "邮箱")
-private String email;
+        private String email;
 
         @ApiModelProperty(value = "手机号")
-private String mobile;
+        private String mobile;
 
         @ApiModelProperty(value = "状态 0：禁用，1:正常")
-private Integer status;
+        private Integer status;
 
         @ApiModelProperty(value = "创建用户id")
-private Long userIdCreate;
+        private Long userIdCreate;
 
         @ApiModelProperty(value = "创建时间")
-private LocalDateTime createTime;
+        private LocalDateTime createTime;
 
         @ApiModelProperty(value = "修改时间")
-private LocalDateTime updateTime;
+        private LocalDateTime updateTime;
 
         @ApiModelProperty(value = "性别")
-private Long sex;
+        private Long sex;
 
         @ApiModelProperty(value = "出生日期")
-private String birth;
+        private String birth;
 
-private String picId;
+        private String picId;
 
         @ApiModelProperty(value = "居住地址")
-private String liveAddress;
+        private String liveAddress;
 
         @ApiModelProperty(value = "省份")
-private String province;
+        private String province;
 
         @ApiModelProperty(value = "所在城市")
-private String city;
+        private String city;
 
         @ApiModelProperty(value = "所在地区")
-private String district;
+        private String district;
 
         @ApiModelProperty(value = "备注")
-private String note;
+        private String note;
 
 
     public String getId() {
@@ -240,24 +241,60 @@ private String note;
     public String toString() {
     return "User{" +
             "id="+id+
+
                     ", username=" + username +
+
+
                     ", name=" + name +
+
+
                     ", password=" + password +
+
+
                     ", deptId=" + deptId +
+
+
                     ", email=" + email +
+
+
                     ", mobile=" + mobile +
+
+
                     ", status=" + status +
+
+
                     ", userIdCreate=" + userIdCreate +
+
+
                     ", createTime=" + createTime +
+
+
                     ", updateTime=" + updateTime +
+
+
                     ", sex=" + sex +
+
+
                     ", birth=" + birth +
+
+
                     ", picId=" + picId +
+
+
                     ", liveAddress=" + liveAddress +
+
+
                     ", province=" + province +
+
+
                     ", city=" + city +
+
+
                     ", district=" + district +
+
+
                     ", note=" + note +
+
             "}";
 }
 
