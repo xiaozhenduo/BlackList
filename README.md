@@ -1,5 +1,5 @@
 # BlackList
-个人兴趣
+个人兴趣，个人开发学习整合使用
 
 
 
@@ -29,3 +29,23 @@ BlackList基于Spring Boot 、shiro、Mybatis Plus、Vue的前后端分离的的
 |     |   后端源码  |   前端源码  |
 |---  |--- | --- |
 |  GitHub   |  https://github.com/xiaozhenduo/BlackList.git   |  https://github.com/xiaozhenduo/BlackList-vue.git  |
+
+
+#### 基本功能
+
+- shiro安全校验，token，redis存储
+- Mybatis Plus 国内人员开发的 MyBatis 增强工具整合
+- 基于 Mybatis Plus generator的后台代码快速生成开发工具，解放CURD
+- 多模块系统开发
+- 统一返回格式，统一异常处理
+- logging控制台日志处理
+- swagger2 接口文档
+
+#### 系统预览
+
+- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/2.png) 
+- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/3.png) 
+- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/4.png) 
+- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/5.png) 
+
+
