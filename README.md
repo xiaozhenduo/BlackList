@@ -46,6 +46,6 @@ BlackList基于Spring Boot 、shiro、Mybatis Plus、Vue的前后端分离的的
 - ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/2.png) 
 - ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/3.png) 
 - ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/4.png) 
-- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/5.png) 
+
 
 
