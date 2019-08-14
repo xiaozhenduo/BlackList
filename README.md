@@ -3,7 +3,7 @@
 
 
 
-- ![image](https://github.com/blacklist-web/src/main/resources/templates/img/b.png)
+- ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/b.png)
    
 系统介绍
 BlackList基于Spring Boot 、shiro、Mybatis Plus、Vue的前后端分离的的RBAC权限管理系统，项目支持数据权限管理，支持后端配置菜单动态路由。
