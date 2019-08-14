@@ -19,6 +19,6 @@ BlackList基于Spring Boot 、shiro、Mybatis Plus、Vue的前后端分离的的
    - --blacklist-shiro Java安全框架
    - --blacklist-system 系统功能模块
    - --blacklist-web 配置文件静态文件地址
-- <img src="https://gitee.com/blacklist-web/src/main/resources/templates/img/b.png" height="256" width="678">
-    
+
+ - ![image](https://github.com/xiaozhenduo/BlackList/blob/master/blacklist-web/src/main/resources/templates/img/图片.png)   
     
